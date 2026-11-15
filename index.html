@@ -120,10 +120,19 @@
   @keyframes shine { from { transform: translateX(-160%) skewX(-18deg); } to { transform: translateX(330%) skewX(-18deg); } }
   .btn-call { flex: 0 0 auto; padding: 0 18px; background: transparent; color: var(--main); border: 2px solid var(--main); }
   @media (prefers-color-scheme: dark) { .btn-call { color: var(--on-canvas); border-color: var(--main-soft); } }
-  .btn-call:hover { background: var(--main); color: var(--on-main); }
+  @media (hover: hover) { .btn-call:hover { background: var(--main); color: var(--on-main); } }
+  .btn-call:active { background: var(--main); color: var(--on-main); }
   .btn-call:hover svg { animation: ring .5s ease-in-out; }
   @keyframes ring { 0%,100% { transform: rotate(0); } 25% { transform: rotate(-14deg); } 75% { transform: rotate(14deg); } }
+  button.btn { appearance: none; -webkit-appearance: none; margin: 0; }
   .btn-off { background: var(--line); color: var(--muted); cursor: default; }
+  /* small notice that slides up from the bottom */
+  .toast { position: fixed; z-index: 10; left: 16px; right: 16px; margin: 0 auto; width: fit-content; bottom: calc(22px + env(safe-area-inset-bottom));
+    display: flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 16px;
+    background: var(--main); color: var(--on-main); font-weight: 700; font-size: 1rem; box-shadow: var(--shadow-hi);
+    opacity: 0; transform: translateY(24px); pointer-events: none; transition: opacity .25s ease-out, transform .3s ease-out; }
+  .toast.show { opacity: 1; transform: translateY(0); }
+  .toast svg { width: 20px; height: 20px; flex: none; color: var(--accent); }
   .btn-off:hover { transform: none; box-shadow: none; }
 
   /* ---------- footer with live waves ---------- */
@@ -198,10 +207,24 @@
     html += '<div class="actions">';
     if (b.map && !b.soon) html += '<a class="btn btn-map" href="' + esc(b.map) + '" target="_blank" rel="noopener">' + ICON.map + '<span>الموقع على الخريطة</span></a>';
     else html += '<span class="btn btn-off" aria-disabled="true">' + ICON.map + '<span>الموقع قريباً</span></span>';
-    if (b.phone) html += '<a class="btn btn-call" href="tel:' + esc(b.phone) + '" aria-label="اتصال ' + esc(b.name) + '">' + ICON.phone + '<span>اتصال</span></a>';
+    if (b.phone === "soon") html += '<button type="button" class="btn btn-call" data-soon-phone aria-label="اتصال ' + esc(b.name) + '">' + ICON.phone + '<span>اتصال</span></button>';
+    else if (b.phone) html += '<a class="btn btn-call" href="tel:' + esc(b.phone) + '" aria-label="اتصال ' + esc(b.name) + '">' + ICON.phone + '<span>اتصال</span></a>';
     html += '</div>';
     li.innerHTML = html;
     list.appendChild(li);
+  });
+  var toast = document.createElement("div");
+  toast.className = "toast"; toast.setAttribute("role", "status"); toast.setAttribute("aria-live", "polite");
+  document.body.appendChild(toast);
+  var toastTimer;
+  function showToast(msg) {
+    toast.innerHTML = ICON.phone + '<span>' + esc(msg) + '</span>';
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove("show"); }, 2600);
+  }
+  list.addEventListener("click", function (e) {
+    if (e.target.closest("[data-soon-phone]")) showToast("سيتم إضافة رقم الجوال قريباً");
   });
   document.addEventListener("visibilitychange", function () { document.documentElement.classList.toggle("paused", document.hidden); });
 })();
