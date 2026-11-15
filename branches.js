@@ -24,7 +24,7 @@ window.BRANCHES = [
     name: "فرع سوق سبعة",
     area: "جدة · سوق 7",
     map: "https://maps.app.goo.gl/HwiBQnuNjYLRLcVy6",
-    phone: "soon",
+    phone: "+966548544909",
     hours: "يومياً من ٨ الصبح إلى ١٢ بالليل",
     soon: false
   }
