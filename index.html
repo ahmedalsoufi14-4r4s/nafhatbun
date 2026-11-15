@@ -3,30 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>فروع نفحة بن</title>
-<meta name="description" content="مواقع فروع عطارة نفحة بن: اختر أقرب فرع لك.">
-<meta name="theme-color" content="#5C1F1E">
-<meta property="og:title" content="فروع نفحة بن">
+<title>فروع نفحة بن ونفحة ثمار</title>
+<meta name="description" content="مواقع فروع نفحة بن ونفحة ثمار: اختر أقرب فرع لك.">
+<meta name="theme-color" content="#2E1715">
+<meta property="og:title" content="فروع نفحة بن ونفحة ثمار">
 <meta property="og:description" content="اختر أقرب فرع لك واضغط الموقع.">
-<meta property="og:image" content="logo.png">
+<meta property="og:image" content="og.png">
 <link rel="icon" href="icon.png">
 <link rel="apple-touch-icon" href="icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
-  /* ---------- tokens: 60 cream / 30 maroon / 10 gold ---------- */
+  /* ---------- tokens: 60 cream / 30 coffee brown (Nafhat Bon) / 10 orange (Nafhat Thimar) ---------- */
   :root {
     --canvas: #FBF7F1;        /* 60% */
     --surface: #FFFFFF;
     --on-canvas: #2A1514;
     --muted: #6E5A55;
     --line: #EADFD3;
-    --main: #5C1F1E;          /* 30% (logo maroon) */
-    --main-soft: #8A3A35;
+    --main: #2E1715;          /* 30% (Nafhat Bon brown) */
+    --main-soft: #5A3A33;
     --on-main: #FFF4E2;
-    --accent: #F6C448;        /* 10% (gold) */
-    --on-accent: #3B1110;
+    --accent: #E8892B;        /* 10% (Nafhat Thimar orange) */
+    --on-accent: #2E1715;
     --shadow: 0 1px 2px rgba(60,20,18,.06), 0 8px 24px rgba(60,20,18,.08);
     --shadow-hi: 0 2px 4px rgba(60,20,18,.08), 0 18px 40px rgba(60,20,18,.16);
     --radius: 22px;
@@ -34,11 +34,11 @@
   @media (prefers-color-scheme: dark) {
     :root {
       --canvas: #17110F; --surface: #221917; --on-canvas: #F6ECE2; --muted: #C9B7AC; --line: #3A2B27;
-      --main: #6E2725; --main-soft: #A44B44; --on-main: #FFF4E2;
+      --main: #4A2E28; --main-soft: #9C7B5C; --on-main: #FFF4E2;
       --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
       --shadow-hi: 0 2px 4px rgba(0,0,0,.35), 0 18px 40px rgba(0,0,0,.5);
     }
-    .logo-wrap { background: #FBF7F1; }
+    .logo-wrap.logo-wrap { background: #FBF7F1; }
   }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
@@ -50,18 +50,18 @@
   /* ---------- live background ---------- */
   .bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
   .blob { position: absolute; border-radius: 50%; opacity: .55; will-change: transform; }
-  .b1 { width: 340px; height: 340px; top: -90px; right: -80px; background: radial-gradient(circle, rgba(246,196,72,.55), rgba(246,196,72,0) 68%); animation: float1 13s ease-in-out infinite; }
-  .b2 { width: 420px; height: 420px; top: 30%; left: -180px; background: radial-gradient(circle, rgba(92,31,30,.30), rgba(92,31,30,0) 68%); animation: float2 17s ease-in-out infinite; }
-  .b3 { width: 260px; height: 260px; bottom: 8%; right: -60px; background: radial-gradient(circle, rgba(246,196,72,.45), rgba(246,196,72,0) 68%); animation: float3 11s ease-in-out infinite; }
-  .b4 { width: 200px; height: 200px; top: 55%; right: 30%; background: radial-gradient(circle, rgba(138,58,53,.28), rgba(138,58,53,0) 70%); animation: float4 15s ease-in-out infinite; }
-  .b5 { width: 160px; height: 160px; top: 12%; left: 10%; background: radial-gradient(circle, rgba(246,196,72,.40), rgba(246,196,72,0) 70%); animation: float5 10s ease-in-out infinite; }
+  .b1 { width: 340px; height: 340px; top: -90px; right: -80px; background: radial-gradient(circle, rgba(232,137,43,.55), rgba(232,137,43,0) 68%); animation: float1 13s ease-in-out infinite; }
+  .b2 { width: 420px; height: 420px; top: 30%; left: -180px; background: radial-gradient(circle, rgba(46,23,21,.30), rgba(46,23,21,0) 68%); animation: float2 17s ease-in-out infinite; }
+  .b3 { width: 260px; height: 260px; bottom: 8%; right: -60px; background: radial-gradient(circle, rgba(232,137,43,.45), rgba(232,137,43,0) 68%); animation: float3 11s ease-in-out infinite; }
+  .b4 { width: 200px; height: 200px; top: 55%; right: 30%; background: radial-gradient(circle, rgba(180,144,104,.28), rgba(180,144,104,0) 70%); animation: float4 15s ease-in-out infinite; }
+  .b5 { width: 160px; height: 160px; top: 12%; left: 10%; background: radial-gradient(circle, rgba(232,137,43,.40), rgba(232,137,43,0) 70%); animation: float5 10s ease-in-out infinite; }
   @keyframes float1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-120px,140px) scale(1.25); } }
   @keyframes float2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(160px,-120px) scale(.85); } }
   @keyframes float3 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-140px,-160px) scale(1.3); } }
   @keyframes float4 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(120px,90px) scale(1.2); } }
   @keyframes float5 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(90px,120px) scale(.8); } }
   .stars { position: absolute; inset: 0; opacity: .07; color: var(--main);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%235C1F1E' stroke-width='1.4'%3E%3Crect x='20' y='20' width='24' height='24'/%3E%3Crect x='20' y='20' width='24' height='24' transform='rotate(45 32 32)'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke='%232E1715' stroke-width='1.4'%3E%3Crect x='20' y='20' width='24' height='24'/%3E%3Crect x='20' y='20' width='24' height='24' transform='rotate(45 32 32)'/%3E%3C/g%3E%3C/svg%3E");
     animation: drift 40s linear infinite; }
   @keyframes drift { from { background-position: 0 0; } to { background-position: 128px 64px; } }
 
@@ -71,7 +71,12 @@
   .logo-wrap { display: inline-block; padding: 14px 22px; border-radius: 26px; background: rgba(255,255,255,.7);
     box-shadow: var(--shadow); transition: transform .3s ease-out, box-shadow .3s ease-out; animation: rise .6s ease-out both; }
   .logo-wrap:hover, .logo-wrap:active { transform: translateY(-3px) rotate(-1.5deg); box-shadow: var(--shadow-hi); }
-  .logo-wrap img { display: block; width: 210px; height: auto; aspect-ratio: 640/364; }
+  .logo-wrap { display: inline-flex !important; align-items: center; gap: 14px; }
+  .logo-wrap img { display: block; height: auto; }
+  .lg-bon { width: 150px; aspect-ratio: 600/227; }
+  .lg-thi { width: 150px; aspect-ratio: 600/318; }
+  .sep { width: 2px; align-self: stretch; background: var(--line); border-radius: 2px; }
+  @media (min-width: 480px) { .lg-bon { width: 190px; } .lg-thi { width: 172px; } }
   h1 { margin: 18px 0 2px; font-size: 1.9rem; font-weight: 800; color: var(--main); animation: rise .6s .08s ease-out both; }
   @media (prefers-color-scheme: dark) { h1 { color: var(--on-canvas); } }
   .sub { margin: 0; color: var(--muted); font-size: 1rem; animation: rise .6s .14s ease-out both; }
@@ -150,7 +155,7 @@
 
   <main class="wrap">
     <header>
-      <div class="logo-wrap"><img src="logo.png" alt="شركة نفحة بن" width="640" height="364"></div>
+      <div class="logo-wrap"><img class="lg-bon" src="logo-bon.png" alt="نفحة بن" width="600" height="227"><span class="sep" aria-hidden="true"></span><img class="lg-thi" src="logo-thimar.png" alt="نفحة ثمار" width="600" height="318"></div>
       <h1>فروعنا</h1>
       <p class="sub">اختر أقرب فرع لك واضغط <b>الموقع</b></p>
     </header>
@@ -164,7 +169,7 @@
       <svg class="wave w2" viewBox="0 0 1200 70" preserveAspectRatio="none"><path d="M0 46 Q100 22 200 46 T400 46 T600 46 T800 46 T1000 46 T1200 46 V70 H0Z"/></svg>
       <svg class="wave w3" viewBox="0 0 1200 70" preserveAspectRatio="none"><path d="M0 54 Q150 36 300 54 T600 54 T900 54 T1200 54 V70 H0Z"/></svg>
     </div>
-    <div class="foot"><p><span class="gold">نفحة بن</span> · عطارة وبن وبهارات</p></div>
+    <div class="foot"><p><span class="gold">نفحة بن</span> · <span class="gold">نفحة ثمار</span></p></div>
   </footer>
 
 <script src="branches.js"></script>
