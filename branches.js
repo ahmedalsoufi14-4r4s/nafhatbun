@@ -5,7 +5,7 @@
 // snapchat / tiktok / instagram: روابط حسابات الفرع ("" يخفي الزر)
 
 // رابط المتجر الإلكتروني: يظهر زر "تسوق الآن" أعلى الصفحة لما ينحط ("" يخفيه)
-window.SHOP_URL = "";
+window.SHOP_URL = "https://nahfat-bin.com/";
 
 window.BRANCHES = [
   {
